@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import TodoItem from './TodoItem.jsx'
+import TodoItem from './TodoItem'
 
-const TodoList = ({ todos, toggleTodo, deleteTodo }) => {
+const TodoList = ({ todos, toggleTodo, deleteTodo, editTodo }) => {
   return (
     <div className="todo-list">
       <AnimatePresence>
@@ -27,6 +27,7 @@ const TodoList = ({ todos, toggleTodo, deleteTodo }) => {
                 todo={todo}
                 toggleTodo={toggleTodo}
                 deleteTodo={deleteTodo}
+                editTodo={editTodo}
               />
             </motion.div>
           ))

@@ -418,3 +418,36 @@ h1 {
     width: 100%;
   }
 }
+
+/* Edit Input */
+.edit-input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 1rem;
+    background: var(--surface);
+    color: var(--text);
+    margin-right: 10px;
+  }
+  
+  /* Todo Actions */
+  .todo-actions {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .edit-btn {
+    background: none;
+    border: none;
+    color: var(--primary);
+    cursor: pointer;
+    padding: 0;
+    font-size: 1rem;
+  }
+  
+  /* Double-click hint */
+  .todo-item span {
+    cursor: pointer;
+    user-select: none;
+  }

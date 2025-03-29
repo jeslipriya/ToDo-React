@@ -39,6 +39,15 @@ function TodoPage() {
     setTodos(todos.filter((todo) => todo.id !== id))
   }
 
+  // Add this edit function
+  const editTodo = (id, newText) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, text: newText } : todo
+      )
+    )
+  }
+
   const filteredTodos = todos.filter(todo => {
     if (filter === 'completed') return todo.completed
     if (filter === 'pending') return !todo.completed
@@ -80,6 +89,7 @@ function TodoPage() {
           todos={filteredTodos}
           toggleTodo={toggleTodo}
           deleteTodo={deleteTodo}
+          editTodo={editTodo} 
         />
       </AnimatePresence>
     </motion.div>
