@@ -1,20 +1,37 @@
+import { AnimatePresence, motion } from 'framer-motion'
 import TodoItem from './TodoItem.jsx'
 
-function TodoList({ todos, toggleTodo, deleteTodo }) {
+const TodoList = ({ todos, toggleTodo, deleteTodo }) => {
   return (
     <div className="todo-list">
-      {todos.length === 0 ? (
-        <p>No tasks yet. Add one above!</p>
-      ) : (
-        todos.map((todo) => (
-          <TodoItem
-            key={todo.id}
-            todo={todo}
-            toggleTodo={toggleTodo}
-            deleteTodo={deleteTodo}
-          />
-        ))
-      )}
+      <AnimatePresence>
+        {todos.length === 0 ? (
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            No tasks found. Add one above!
+          </motion.p>
+        ) : (
+          todos.map((todo) => (
+            <motion.div
+              key={todo.id}
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              layout
+            >
+              <TodoItem
+                todo={todo}
+                toggleTodo={toggleTodo}
+                deleteTodo={deleteTodo}
+              />
+            </motion.div>
+          ))
+        )}
+      </AnimatePresence>
     </div>
   )
 }

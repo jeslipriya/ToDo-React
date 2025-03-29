@@ -1,51 +1,27 @@
-import { useState, useEffect } from 'react'
-import TodoForm from './components/TodoForm.jsx'
-import TodoList from './components/TodoList.jsx'
-import './styles.css'
+import { Routes, Route, Navigate } from 'react-router-dom'
+import { getCurrentUser } from './Auth'
+import TodoPage from './pages/TodoPage'
+import LoginPage from './pages/LoginPage'
+import RegisterPage from './pages/RegisterPage'
 
 function App() {
-  // Load tasks from localStorage on initial render
-  const [todos, setTodos] = useState(() => {
-    const savedTodos = localStorage.getItem('todos')
-    return savedTodos ? JSON.parse(savedTodos) : []
-  })
-
-  // Save tasks to localStorage whenever they change
-  useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos))
-  }, [todos])
-
-  const addTodo = (text) => {
-    const newTodo = {
-      id: Date.now(),
-      text,
-      completed: false,
-    }
-    setTodos([...todos, newTodo])
-  }
-
-  const toggleTodo = (id) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
-    )
-  }
-
-  const deleteTodo = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id))
-  }
+  const currentUser = getCurrentUser()
 
   return (
-    <div className="app">
-      <h1>Todo App</h1>
-      <TodoForm addTodo={addTodo} />
-      <TodoList
-        todos={todos}
-        toggleTodo={toggleTodo}
-        deleteTodo={deleteTodo}
-      />
-    </div>
+    <Routes>
+      <Route path="/login" element={
+        !currentUser ? <LoginPage /> : <Navigate to="/todos" />
+      } />
+      <Route path="/register" element={
+        !currentUser ? <RegisterPage /> : <Navigate to="/todos" />
+      } />
+      <Route path="/todos" element={
+        currentUser ? <TodoPage /> : <Navigate to="/login" />
+      } />
+      <Route path="*" element={
+        <Navigate to={currentUser ? "/todos" : "/login"} />
+      } />
+    </Routes>
   )
 }
 

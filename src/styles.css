@@ -93,3 +93,120 @@
   .todo-item button:hover {
     background-color: #d32f2f;
   }
+
+  /* Add these new styles to your existing CSS */
+
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+  
+  .filter-buttons button {
+    padding: 8px 16px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .filter-buttons button.active {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  /* Enhanced animations for todo items */
+  .todo-item {
+    transition: all 0.3s ease;
+  }
+  
+  /* Add some spacing between items */
+  .todo-list > div {
+    margin-bottom: 8px;
+  }
+
+  /* Add these new styles to your existing CSS */
+
+/* Auth Pages */
+.auth-page {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .auth-form {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .auth-form h2 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .auth-error {
+    color: #f44336;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #ffebee;
+    border-radius: 4px;
+  }
+  
+  .auth-switch {
+    margin-top: 20px;
+    color: #666;
+  }
+  
+  .auth-switch a {
+    color: #4caf50;
+    text-decoration: none;
+  }
+  
+  .auth-switch a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Todo Page Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .logout-btn {
+    padding: 8px 16px;
+    background: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .logout-btn:hover {
+    background: #d32f2f;
+  }
