@@ -1,12 +1,14 @@
 import { useState } from 'react'
 
-function TodoForm({ addTodo }) {
+function TodoForm({ addTodo, categories = [], importanceLevels = [] }) {
   const [inputValue, setInputValue] = useState('')
+  const [category, setCategory] = useState(categories[0] || 'work')
+  const [importance, setImportance] = useState(importanceLevels[0] || 'medium')
 
   const handleSubmit = (e) => {
     e.preventDefault()
     if (inputValue.trim()) {
-      addTodo(inputValue)
+      addTodo(inputValue, category, importance)
       setInputValue('')
     }
   }
@@ -18,8 +20,32 @@ function TodoForm({ addTodo }) {
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
         placeholder="Add a new task..."
+        className="todo-input"
       />
-      <button type="submit">Add</button>
+      
+      <select 
+        value={category}
+        onChange={(e) => setCategory(e.target.value)}
+        className="todo-select"
+      >
+        {categories.map((cat) => (
+          <option key={cat} value={cat}>{cat}</option>
+        ))}
+      </select>
+
+      <select
+        value={importance}
+        onChange={(e) => setImportance(e.target.value)}
+        className="todo-select"
+      >
+        {importanceLevels.map((level) => (
+          <option key={level} value={level}>{level}</option>
+        ))}
+      </select>
+
+      <button type="submit" className="todo-button">
+        Add
+      </button>
     </form>
   )
 }
