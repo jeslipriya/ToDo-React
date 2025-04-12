@@ -86,6 +86,7 @@ h1 {
   color: transparent;
   margin-bottom: 1.5rem;
   text-align: center;
+  transition: all 0.3s ease;
 }
 
 [data-theme="pastel"] h1 {
@@ -93,6 +94,7 @@ h1 {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 [data-theme="dark"] h1 {
@@ -100,6 +102,7 @@ h1 {
   background: none;
   -webkit-background-clip: initial;
   background-clip: initial;
+  text-shadow: 0 0 10px rgba(3, 218, 198, 0.5);
 }
 /* ===== Layout ===== */
 .app {
@@ -424,6 +427,8 @@ h1 {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
 }
 
 .logout-btn {
@@ -440,6 +445,7 @@ h1 {
 .logout-btn:hover {
   background: var(--error-dark);
   transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(244, 67, 54, 0.3);
 }
 
 /* ===== Theme Switcher ===== */
@@ -731,6 +737,8 @@ h1 {
     --primary: #BB86FC;  /* Purple */
     --primary-dark: #3700B3; /* Deep purple */
     --primary-light: #03DAC6; /* Teal */
+    --text: #F5F5F5;
+    --text-secondary: #B0B0B0;
     /* Ensure header text contrast */
     .header h1 {
       color: var(--primary-light);
