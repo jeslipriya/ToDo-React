@@ -153,6 +153,19 @@ h1 {
   box-shadow: var(--shadow);
 }
 
+.todo-list-container {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 2rem;
+}
+
 /* ===== Todo Item ===== */
 .todo-item {
   display: flex;
@@ -239,6 +252,21 @@ h1 {
   transform: scale(1.1);
 }
 
+.todo-checkbox {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-right: 1rem;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.todo-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
 /* ===== Filter Buttons ===== */
 .filter-buttons {
   display: flex;
@@ -279,6 +307,30 @@ h1 {
 .filter-group h3 {
   margin-bottom: 10px;
   color: #555;
+}
+
+.filters-container {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.filter-group {
+  margin-bottom: 1rem;
+}
+
+.filter-group:last-child {
+  margin-bottom: 0;
+}
+
+.filter-group h3 {
+  margin-bottom: 0.75rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 /* ===== Auth Pages ===== */
@@ -433,9 +485,23 @@ h1 {
   .todo-form {
     flex-direction: column;
   }
-  
+
   .todo-form button {
     width: 100%;
+  }
+  
+  .edit-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-buttons {
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+  
+  .filter-buttons button {
+    white-space: nowrap;
   }
 }
 
@@ -451,12 +517,6 @@ h1 {
     margin-right: 10px;
   }
   
-  /* Todo Actions */
-  .todo-actions {
-    display: flex;
-    gap: 8px;
-  }
-  
   .edit-btn {
     background: none;
     border: none;
@@ -464,6 +524,57 @@ h1 {
     cursor: pointer;
     padding: 0;
     font-size: 1rem;
+  }
+
+  .edit-btn, .delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  
+  .edit-btn:hover, .delete-btn:hover {
+    opacity: 1;
+  }
+
+  /* Edit Mode */
+.edit-container {
+  display: flex;
+  flex: 1;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.edit-input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.edit-select {
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  min-width: 100px;
+}
+
+.save-btn {
+  padding: 0.5rem 1rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+  /* Todo Actions */
+  .todo-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: 1rem;
   }
   
   /* Double-click hint */
@@ -473,7 +584,8 @@ h1 {
   }
 
   .todo-text {
-    flex: 1;
+    font-size: 1rem;
+    cursor: pointer;
   }
   
   .todo-meta {
@@ -487,4 +599,31 @@ h1 {
     padding: 3px 8px;
     border-radius: 4px;
     background-color: #e0e0e0;
+  }
+
+  .category-badge, .importance-badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    text-transform: capitalize;
+  }
+  
+  .category-badge {
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+  }
+  
+  .importance-badge {
+    background-color: #E3F2FD;
+    color: #1976D2;
+  }
+  
+  .importance-badge.high {
+    background-color: #FFF3E0;
+    color: #E65100;
+  }
+  
+  .importance-badge.urgent {
+    background-color: #FFEBEE;
+    color: #C62828;
   }
