@@ -88,6 +88,19 @@ h1 {
   text-align: center;
 }
 
+[data-theme="pastel"] h1 {
+  background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+[data-theme="dark"] h1 {
+  color: var(--primary-light);
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+}
 /* ===== Layout ===== */
 .app {
   max-width: 600px;
@@ -714,3 +727,21 @@ h1 {
     transition: all var(--transition-speed) ease;
   }
   
+  [data-theme="dark"] {
+    --primary: #BB86FC;  /* Purple */
+    --primary-dark: #3700B3; /* Deep purple */
+    --primary-light: #03DAC6; /* Teal */
+    /* Ensure header text contrast */
+    .header h1 {
+      color: var(--primary-light);
+    }
+    
+    /* Make sure other important text is visible */
+    .filter-group h3 {
+      color: var(--text-secondary);
+    }
+    
+    .todo-text {
+      color: var(--text);
+    }
+  }
