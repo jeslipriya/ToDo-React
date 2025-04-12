@@ -23,25 +23,39 @@ function TodoForm({ addTodo, categories, importanceLevels }) {
         className="todo-input"
       />
 
-      <select
-        value={category}
-        onChange={(e) => setCategory(e.target.value)}
-        className="todo-select"
-      >
-        {categories.map(cat => (
-          <option key={cat} value={cat}>{cat}</option>
-        ))}
-      </select>
+      <div className="select-group">
+        <select
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          className="todo-select"
+        >
+          {categories.map(cat => (
+            <option 
+              key={cat} 
+              value={cat} 
+              className={`option-${cat.toLowerCase()}`}
+        >
+              {cat.charAt(0).toUpperCase() + cat.slice(1)}
+            </option>
+          ))}
+        </select>
+        <span className="select-arrow">▼</span>
+      </div>
 
-      <select
-        value={importance}
-        onChange={(e) => setImportance(e.target.value)}
-        className="todo-select"
-      >
-        {importanceLevels.map(level => (
-          <option key={level} value={level}>{level}</option>
-        ))}
-      </select>
+      <div className="select-group">
+        <select
+          value={importance}
+          onChange={(e) => setImportance(e.target.value)}
+          className="todo-select"
+        >
+          {importanceLevels.map(level => (
+            <option key={level} value={level}>
+              {level.charAt(0).toUpperCase() + level.slice(1)}
+            </option>
+          ))}
+        </select>
+        <span className="select-arrow">▼</span>
+      </div>
 
       <button type="submit" className="add-btn">
         Add
