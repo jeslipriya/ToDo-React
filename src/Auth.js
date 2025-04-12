@@ -1,14 +1,16 @@
 // Mock authentication functions
-export const login = async (email, password) => {
-    // In a real app, this would call your backend
-    const users = JSON.parse(localStorage.getItem('users')) || []
-    const user = users.find(u => u.email === email && u.password === password)
-    
-    if (!user) throw new Error('Invalid credentials')
-    
-    localStorage.setItem('currentUser', JSON.stringify(user))
-    return user
+export async function login(email, password) {
+  const users = JSON.parse(localStorage.getItem("users")) || []
+  const user = users.find(u => u.email === email && u.password === password)
+  if (!user) {
+    throw new Error("Invalid email or password")
   }
+
+  // Save logged in user
+  localStorage.setItem("user", JSON.stringify(user))  // 👈 THIS IS IMPORTANT
+  return user
+}
+
   
   export const register = async (email, password) => {
     const users = JSON.parse(localStorage.getItem('users')) || []
@@ -30,5 +32,6 @@ export const login = async (email, password) => {
   }
   
   export const getCurrentUser = () => {
-    return JSON.parse(localStorage.getItem('currentUser'))
+    const user = localStorage.getItem('user'); // or your actual auth check
+    return user ? JSON.parse(user) : null;
   }

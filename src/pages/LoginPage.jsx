@@ -11,7 +11,7 @@ function LoginPage() {
   const handleSubmit = async (email, password) => {
     try {
       await login(email, password)
-      navigate('/todos')
+      window.location.href = "/todos";
     } catch (err) {
       setError(err.message)
     }
