@@ -15,6 +15,7 @@ function TodoPage() {
   const [statusFilter, setStatusFilter] = useState('all');
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [importanceFilter, setImportanceFilter] = useState('all');
+  const [currentTheme, setCurrentTheme] = useState('pastel');
 
   // Available options
   const categories = ['work', 'personal', 'shopping', 'health', 'other'];
@@ -22,7 +23,8 @@ function TodoPage() {
 
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
-  }, [todos]);
+    document.documentElement.setAttribute('data-theme', currentTheme);
+  }, [todos, currentTheme]);
 
   const addTodo = (text, category, importance) => {
     const newTodo = {
@@ -75,13 +77,28 @@ function TodoPage() {
     return true;
   });
 
+  const toggleTheme = () => {
+    setCurrentTheme(prev => prev === 'pastel' ? 'dark' : 'pastel');
+  };
+
   const handleLogout = () => {
     logout();
     window.location.href = '/login';
   };
 
   return (
-    <div className="app" data-theme="pastel">
+    <div className="app" data-theme={currentTheme}>
+
+      <button 
+        className="theme-switcher"
+        onClick={toggleTheme}
+        aria-label="Toggle theme"
+      >
+        <span className="theme-icon">
+          {currentTheme === 'pastel' ? '🌙' : '☀️'}
+        </span>
+      </button>
+
       <div className="header">
         <motion.h1
           initial={{ y: -20, opacity: 0 }}
