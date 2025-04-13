@@ -3,13 +3,14 @@
 A simple and user-friendly **To-Do List App** built with **React.js** and Vite.
 
 ## Features 🚀
-- ✅ Add new tasks
+- ✅ Add new tasks with Catergory and level of importance
 - ✏️ Edit tasks (optional)
 - ❌ Delete tasks
 - 🎯 Mark tasks as completed
 - 🔍 Filter tasks (All, Completed, Pending)
 - 🔒 User authentication (Login & Register) (optional)
 - 💾 Stores tasks in **localStorage**
+- 🌙 Dark Mode
 
 ## Project Structure 📂
 ```
@@ -69,7 +70,6 @@ npm run dev
 - **localStorage** - Data persistence
 
 ## Future Improvements ✨
-- 🌙 Dark Mode
 - 🗑 Undo Task Deletion
 - 📱 Mobile Responsive UI
 - 📊 Task Statistics
