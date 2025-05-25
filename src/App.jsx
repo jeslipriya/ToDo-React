@@ -25,7 +25,7 @@ function App() {
   }
 
   return (
-    <BrowserRouter /* basename="/" optional, only if you serve from root */>
+    <BrowserRouter  basename="/" >
       <Routes>
         {/* Public routes */}
         <Route path="/login" element={
