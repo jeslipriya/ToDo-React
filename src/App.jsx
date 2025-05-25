@@ -4,7 +4,6 @@ import { getCurrentUser } from './Auth';
 import TodoPage from './pages/TodoPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -25,7 +24,6 @@ function App() {
   }
 
   return (
-    <BrowserRouter  basename="/" >
       <Routes>
         {/* Public routes */}
         <Route path="/login" element={
@@ -48,7 +46,6 @@ function App() {
           <Navigate to={currentUser ? "/todos" : "/login"} replace />
         } />
       </Routes>
-    </BrowserRouter>
   );
 }
 
