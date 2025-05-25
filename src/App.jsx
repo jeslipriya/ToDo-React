@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';  // Add this import
+import { useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { getCurrentUser } from './Auth';
 import TodoPage from './pages/TodoPage';
@@ -10,26 +10,37 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Check authentication status when component mounts
-    const user = getCurrentUser();
-    setCurrentUser(user);
-    setLoading(false);
+    // Simulate async auth check (even if getCurrentUser is synchronous)
+    const checkAuth = async () => {
+      const user = getCurrentUser();
+      setCurrentUser(user);
+      setLoading(false);
+    };
+    checkAuth();
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;  // Show loading state while checking auth
+    return <div>Loading...</div>;
   }
 
   return (
     <Routes>
+      {/* Public routes */}
       <Route path="/login" element={
         !currentUser ? <LoginPage /> : <Navigate to="/todos" replace />
       } />
       <Route path="/register" element={
         !currentUser ? <RegisterPage /> : <Navigate to="/todos" replace />
       } />
+      
+      {/* Protected route */}
       <Route path="/todos" element={
         currentUser ? <TodoPage /> : <Navigate to="/login" replace />
+      } />
+      
+      {/* Default redirect */}
+      <Route path="/" element={
+        <Navigate to={currentUser ? "/todos" : "/login"} replace />
       } />
       <Route path="*" element={
         <Navigate to={currentUser ? "/todos" : "/login"} replace />
