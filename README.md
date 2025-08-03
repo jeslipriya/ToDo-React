@@ -2,7 +2,7 @@
 
 A simple and user-friendly **To-Do List App** built with **React.js** and Vite.
 
-## Features 🚀
+## Features 
 - Add new tasks with Catergory and level of importance
 - Edit tasks (optional)
 - Delete tasks
