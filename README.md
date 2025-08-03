@@ -3,16 +3,16 @@
 A simple and user-friendly **To-Do List App** built with **React.js** and Vite.
 
 ## Features 🚀
-- ✅ Add new tasks with Catergory and level of importance
-- ✏️ Edit tasks (optional)
-- ❌ Delete tasks
-- 🎯 Mark tasks as completed
-- 🔍 Filter tasks (All, Completed, Pending)
-- 🔒 User authentication (Login & Register) (optional)
-- 💾 Stores tasks in **localStorage**
-- 🌙 Dark Mode
+- Add new tasks with Catergory and level of importance
+- Edit tasks (optional)
+- Delete tasks
+- Mark tasks as completed
+- Filter tasks (All, Completed, Pending)
+- User authentication (Login & Register) (optional)
+- Stores tasks in **localStorage**
+- Dark Mode
 
-## Project Structure 📂
+## Project Structure 
 ```
 my-todo-app/
 ├── public/                   # Static files
@@ -49,7 +49,7 @@ my-todo-app/
 ## Installation & Setup 🛠
 1. **Clone the repo**
 ```sh
-git clone https://github.com/yourusername/my-todo-app.git
+git clone https://github.com/jeslipriya/ToDo-React.git
 cd my-todo-app
 ```
 
@@ -69,14 +69,11 @@ npm run dev
 - **CSS** - Styling
 - **localStorage** - Data persistence
 
-## Future Improvements ✨
-- 🗑 Undo Task Deletion
-- 📱 Mobile Responsive UI
-- 📊 Task Statistics
-
-## License 📜
-This project is **MIT Licensed**.
+## Future Improvements 
+- Undo Task Deletion
+- Mobile Responsive UI
+- Task Statistics
 
 ---
-Made by **Jesli** 🚀
+Made by **Jesli** 
 
