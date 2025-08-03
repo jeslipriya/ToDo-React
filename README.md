@@ -50,7 +50,7 @@ my-todo-app/
 1. **Clone the repo**
 ```sh
 git clone https://github.com/jeslipriya/ToDo-React.git
-cd my-todo-app
+cd ToDo-React
 ```
 
 2. **Install dependencies**
